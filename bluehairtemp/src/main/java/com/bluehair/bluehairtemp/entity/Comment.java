@@ -24,6 +24,11 @@ public class Comment extends Timestamped{
     @JoinColumn(name = "MEMBER_ID", nullable = false)
     private Member member;
 
+    //댓글 --N:1--> 게시글
+    @ManyToOne
+    @JoinColumn(name = "FORUM_ID", nullable = false)
+    private Forum forum;
+
     //댓글 --1:N--> 댓글좋아요
     @OneToMany
     @JoinColumn(name = "COMMENT_ID")
